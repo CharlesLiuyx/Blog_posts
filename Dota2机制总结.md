@@ -3,10 +3,10 @@ title: Dota2机制总结
 date: 2017-09-05 23:50:56
 categories: 
 - Dota2
-- Wiki
 tags:
 - Dota2
 - Data Analysis
+- Wiki
 ---
 
 【阅读时间】百科类型文章

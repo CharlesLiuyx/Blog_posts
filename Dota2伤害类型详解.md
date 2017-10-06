@@ -5,7 +5,7 @@ categories:
 - Dota2
 tags:
 - Dota2
-- Mechanism
+- Wiki
 ---
 
 【阅读时间】5min 百科类

@@ -1,6 +1,8 @@
 ---
 title: PDF复制粘贴去除多余的回车符
 date: 2017-07-29 23:03:08
+categories:
+- Tools
 tags:
 - Tools
 - Autohotkey

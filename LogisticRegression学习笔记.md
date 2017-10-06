@@ -1,10 +1,10 @@
 ---
 title: 【直观详解】Logistic Regression
 date: 2017-09-04 00:21:50
+categories:
+- Machine Learning
 tags: 
-- BitTiger
 - Theory
-- Model
 - Machine Learning
 ---
 

@@ -1,7 +1,11 @@
 ---
 title: English-abbreviation
 date: 2017-05-13 17:29:00
-tags: 英语积累
+categories:
+- Presentation
+tags: 
+- Wiki
+- English
 mathjax: false
 ---
 一些常用的英语缩写的总结
@@ -63,10 +67,10 @@ mathjax: false
 17. `BTW`: by the way 顺便说一下 顺便问一下
 18. `MYOB`: mind your own business 别多管闲事
 19. `FAQ`: frequently asked questions 经常被问的问题
-20: `WTF`: what the fuck 搞毛阿...... 委婉的是WTH: what the hell/heck
-21: `AKA`: also known as. 也叫做
-22. `TGIF`: thank god It's Friday 谢天谢地又到礼拜五了
-23. `TBC`: to be continued; to be confirmed 未完待续/ 有待确认
+   20: `WTF`: what the fuck 搞毛阿...... 委婉的是WTH: what the hell/heck
+   21: `AKA`: also known as. 也叫做
+20. `TGIF`: thank god It's Friday 谢天谢地又到礼拜五了
+21. `TBC`: to be continued; to be confirmed 未完待续/ 有待确认
 
 ## 数字字母篇
 `2`: to/too

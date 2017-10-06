@@ -2,7 +2,7 @@
 title: Pandas-Wiki
 date: 2017-09-30 10:44:25
 categories:
-- Wiki
+- Tools
 tags:
 - Library
 - Wiki

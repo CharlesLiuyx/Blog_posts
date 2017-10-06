@@ -1,8 +1,10 @@
 ---
 title: LeetcodeNote
 date: 2017-07-01 00:18:41
+categories:
+- Algorithm
 tags:
-- 算法
+- Algorithm
 - Leetcode
 ---
 
