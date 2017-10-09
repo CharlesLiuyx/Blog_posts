@@ -2,10 +2,10 @@
 title: 【直观详解】什么是PCA、SVD
 date: 2017-10-05 18:31:12
 categories:
-- Machine Learning
+ - Machine Learning
 tags:
-- Machine Learning
-- Theory
+ - Machine Learning
+ - Theory
 ---
 
 【阅读时间】
@@ -31,7 +31,7 @@ PCA，Principal components analyses，主成分分析。广泛应用于降维，
 
 - **最小化**投影造成的损失（下图中**所有红线（投影造成的损失）**加起来最小）
 
-![投影造成的损失](【直观详解】什么是PCA、SVD/PCAani.gi)
+![投影造成的损失](【直观详解】什么是PCA、SVD/PCAani.gif)
 
 SVD，Singular Value Decomposition，奇异值分解。我们知道我们可以把矩阵分解成特征向量和特征值（关于特征向量和特征值的理解也详见我的另一篇博文：【直观详解】线性代数的本质）
 
