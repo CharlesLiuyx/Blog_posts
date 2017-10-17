@@ -23,7 +23,7 @@ PCA，Principal components analyses，主成分分析。广泛应用于降维，
 
 - **最大化**正交投影后数据的方差（让数据在经过变换后**更加分散**）
 
-![往低维度的投影直观表示图](【直观详解】什么是PCA、SVD/PCA.png)
+<div align="center"><img src="【直观详解】什么是PCA、SVD/PCA.png" alt="往低维度的投影直观表示图" width="500px"></div>
 
 > 紫色的直线 $u\_1$ 即是关于 $\{x\_1,x\_2\}$ 二维的正交投影的对应一维表示
 > PCA定义为使**绿色点集的方差最小**（方差是尽量让绿色所有点都**聚在一坨**）
@@ -33,13 +33,37 @@ PCA，Principal components analyses，主成分分析。广泛应用于降维，
 
 ![投影造成的损失](【直观详解】什么是PCA、SVD/PCAani.gif)
 
-SVD，Singular Value Decomposition，奇异值分解。我们知道我们可以把矩阵分解成特征向量和特征值（关于特征向量和特征值的理解详见我的另一篇博文：【直观详解】线性代数的本质）
+PCA 主成分分析主要目的是为了减少数据维数，其中Auto-encoder也是一种十分天才的降维手段
 
+# What & Why SVD（奇异值分解）
 
+SVD，Singular Value Decomposition，奇异值分解。最直观的解释如下图所示
 
+<div align="center"><img src="【直观详解】什么是PCA、SVD/SVD.svg" alt="往低维度的投影直观表示图" width="500px"></div>
 
+我们知道，**矩阵描述的是一种变换**（如果对这个概念有疑惑的，欢迎移步我的博客笔记：[线性代数的本质](https://charlesliuyx.github.io/2017/10/06/%E3%80%90%E7%9B%B4%E8%A7%82%E8%AF%A6%E8%A7%A3%E3%80%91%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E6%9C%AC%E8%B4%A8/)）奇异值分解是矩阵分解的其中一种。换句话说，从上图的圆**变换**为右边的椭圆，通过一个 $\mathbf M$ 矩阵就可以做到，但是，我们知道，非方阵是很不好处理的，**我们希望，可以把 $\mathbf M$ 矩阵表示的变换，分解为其他几种变换的组合（注意，分解之后，被分解的分量包含 $\mathbf M$ 的信息，我们可以使用这些分量来进行操作），这几个变换我们希望是方阵，或者有特殊的性质。**
 
+{% raw %}
+$$
+\mathbf M = \mathbf U \cdot \mathbf \Sigma \cdot \mathbf V^*
+$$
+{% endraw %}
 
+> $\mathbf M$ 是一个`m×n`阶矩阵（输入为`n`维向量，输出为`m`维向量
+>
+> $\mathbf U$ 的列组成一套基向量，`m×m`阶矩阵，为$\mathbf M \mathbf M^\*$ 的**特征向量**
+>
+> $\mathbf \Sigma$ 对角矩阵，对角线上的值称为奇异值，可视为在输入与输出之间进行的标量的“伸缩尺度控制”。为 $\mathbf M \mathbf M^\*$ 或 $\mathbf M^\* \mathbf M$ 的非零**特征值**的平方根
+>
+> $\mathbf V^\*^*$ 是 $\mathbf V$ 的共轭转置（实数域即 $\mathbf V^T$），`n×n`阶矩阵，$\mathbf V$ 的列组成一套基向量，为 $\mathbf M^\* \mathbf M$ 的**特征向量**
+
+这里我们发现这个 $\mathbf U$ 还有 $\mathbf V$ 都是**方阵**，恰好满足之前的需求
+
+且有 $\mathbf U \mathbf U^T = \mathbf I\_n$ 同时 $\mathbf V \mathbf V^T = \mathbf I\_m$ ，所以 $\mathbf U$ 和 $\mathbf V$ 是**正交矩阵**，而我们知道，正交矩阵对应的变换，就是**旋转变换**
+
+对于 $\mathbf \Sigma$ 来说，我们知道特征值就是表示的度量伸缩程度的因子，即上图中的**伸缩压缩程度**（图中很直观的体现了这一点）
+
+总结一下，SVD就是把一个非方阵（压缩变换）分解为一个旋转➜伸缩压缩➜旋转三个变换（矩阵），如上图所示
 
 
 
