@@ -33,7 +33,7 @@ PCA，Principal components analyses，主成分分析。广泛应用于降维，
 
 ![投影造成的损失](【直观详解】什么是PCA、SVD/PCAani.gif)
 
-SVD，Singular Value Decomposition，奇异值分解。我们知道我们可以把矩阵分解成特征向量和特征值（关于特征向量和特征值的理解也详见我的另一篇博文：【直观详解】线性代数的本质）
+SVD，Singular Value Decomposition，奇异值分解。我们知道我们可以把矩阵分解成特征向量和特征值（关于特征向量和特征值的理解详见我的另一篇博文：【直观详解】线性代数的本质）
 
 
 
