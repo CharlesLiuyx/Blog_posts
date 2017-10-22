@@ -8,7 +8,7 @@ tags:
 - Deep Learning
 ---
 
-【阅读时间】15min - 17min
+【阅读时间】8000words 15min - 17min
 【内容简介】[AlphaGo1.0详解链接](https://charlesliuyx.github.io/2017/05/27/AlphaGo%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/)，这篇AlphaGo Zero论文原文超详细翻译，并且总结了AlphaGo Zero的算法核心思路，附带收集了网上的相关评论
 <!-- more -->
 
@@ -16,7 +16,7 @@ tags:
 
 # 论文正文内容详细解析
 
-先上干货论文：[Mastering the Game of Go without Human Knowledge](https://deepmind.com/documents/119/agz_unformatted_nature.pdf) ，之后会主要**以翻译论文**为主，在语言上**尽量易懂，去除翻译腔**
+先上干货论文：[Mastering the Game of Go without Human Knowledge](https://deepmind.com/documents/119/agz_unformatted_nature.pdf) ，之后会主要**以翻译论文**为主，在语言上**尽量易懂，避免翻译腔**
 
 AlphaGo Zero，从本质上来说完全不同于打败樊麾和李世石的版本
 
