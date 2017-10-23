@@ -109,7 +109,7 @@ MCTS搜索得出的**落子概率**比 $f_\theta$ 输出的**仅使用神经网�
 
 叶子节点（终局）只会被产生一次用于产生**先验概率和评估值**，符号表示即 $f\_\theta(s') = (P(s',\cdot), V(s'))$ 
 
-模拟过程中**遍历每条边** $(\vec s, \vec a)$ 时更新**记录的统计数据**。访问次数加一 $N(\vec s,\vec a) += 1$；更新行动价值为整个模拟过程的平均值，即 {% raw %} $Q(\vec s, \vec a) = \frac{1}{N(\vec s, \vec a) \Sigma_{\vec s'|\vec s, \vec a \Rightarrow \vec s'}V(\vec s')}$ {% endraw %}，$\vec s'|\vec s, \vec a \Rightarrow \vec s'$ 表示在模拟过程中从 $\vec s$ 走到 $\vec s'$的所有落子行动 $\vec a$
+模拟过程中**遍历每条边** $(\vec s, \vec a)$ 时更新**记录的统计数据**。访问次数加一 $N(\vec s,\vec a) += 1$；更新行动价值为整个模拟过程的平均值，即 {% raw %} $Q(\vec s, \vec a) = \frac {1}{N(\vec s, \vec a)}\Sigma_{\vec s'|\vec s, \vec a \Rightarrow \vec s'}V(\vec s')$ {% endraw %}，$\vec s'|\vec s, \vec a \Rightarrow \vec s'$ 表示在模拟过程中从 $\vec s$ 走到 $\vec s'$的所有落子行动 $\vec a$
 <a name="Figure2"></a>
 <div align="center"><img src="深入浅出看懂AlphaGo元/Figure2.png" alt="Figure 2" width="800px"></div>
 
