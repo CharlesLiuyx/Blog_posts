@@ -256,7 +256,7 @@ $L(\theta|x)$ 表示在**给定样本** $x$ ，哪个参数 $\theta$ 使得 $x$ 
 
 Logistic Regression的本质还是一个二分类问题，即Y = 0，or Y = 1
 
-令 $P(Y=1|x) = \pi(x)$ $P(Y=1|x) = 1 - \pi(x)$ 
+令 $P(Y=0|x) = \pi(x)$ $P(Y=1|x) = 1 - \pi(x)$ 
 
 > $y\_i$ 表示i次试验，取值就是0 or 1（二分类问题）
 >
