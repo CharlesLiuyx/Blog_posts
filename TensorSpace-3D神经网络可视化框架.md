@@ -13,9 +13,9 @@ categories:
 
 <!-- more -->
 
-# Conv2d ![#fc3c3c](https://placehold.it/15/fc3c3c/000000?text=+) 
+# Conv2d 
 
-`TSP.layers.Conv2d` 
+`TSP.layers.Conv2d` ![](https://placehold.it/15/fc3c3c/000000?text=+) 
 
 ## 输出和使用
 
@@ -24,11 +24,12 @@ categories:
 
 |                           框架名称                           |                      框架中对应层的语法                      |                       对应框架的代码段                       |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|       [Keras](https://keras.io/layers/convolutional/)        | ```keras.layers.Conv2D(filters, kernel_size, strides=(1, 1))``` |             ```model.add(Conv2D(32, (3, 3)))```              |
-| [Tensorflow](https://www.tensorflow.org/api_docs/python/tf/nn/conv2d) |     ```tf.nn.conv2d(input, filter, strides, padding)```      | ```x = tf.nn.conv2d(x, W, strides=[1, strides, strides, 1], padding='SAME')``` |
-| [Tensorflowjs](https://js.tensorflow.org/api/0.13.0/#layers.conv2d) |         ```tf.layers.conv2d (filters, inputShape)```         | ```model.add(tf.layers.conv2d({kernelSize: 3, filters: 32, activation: 'relu'}));``` |
+|       [Keras](https://keras.io/layers/convolutional/)        | `keras.layers.Conv2D(filters, kernel_size, strides=(1, 1))` |             `model.add(Conv2D(32, (3, 3)))`              |
+| [Tensorflow](https://www.tensorflow.org/api_docs/python/tf/nn/conv2d) |     `tf.nn.conv2d(input, filter, strides, padding)`      | `x = tf.nn.conv2d(x, W, strides=[1, strides, strides, 1], padding='SAME')` |
+| [Tensorflowjs](https://js.tensorflow.org/api/0.13.0/#layers.conv2d) |         `tf.layers.conv2d (filters, inputShape)`         | `model.add(tf.layers.conv2d({kernelSize: 3, filters: 32, activation: 'relu'}));` |
 
 ### 使用效果
+
 - 创建一个新的对象，往画布内添加一个新**3D可视化卷积层**
 - 默认颜色: #fc3c3c  ![#fc3c3c](https://placehold.it/15/fc3c3c/000000?text=+) 
 
