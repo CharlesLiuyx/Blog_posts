@@ -274,7 +274,7 @@ def solve(h, m):
 ## 空间优化版本
 
 ```Python
-def solve_space(h, m):
+def solveSpace(h, m):
     if h < 1 and m < 1:
         return 0
     
@@ -307,7 +307,7 @@ def solve_space(h, m):
 ## 下界优化
 
 ```python
-def solve_boundary(h, m):
+def solveBoundary(h, m):
     if h < 1 and m < 1:
         return 0
     
@@ -340,7 +340,7 @@ def solve_boundary(h, m):
 ## 单调性优化
 
 ```python
-def solve_binary_search(h, m):
+def solveBinarySearch(h, m):
     if h < 1 and m < 1:
         return 0
 
@@ -405,7 +405,7 @@ $$
 ## 状态转移方程优化
 
 ```python
-def solve_transfer_function(h, m):
+def solveTransferFunction(h, m):
     if h < 1 and m < 1:
         return 0
 
@@ -499,7 +499,7 @@ def g(h, m):
 从形式上来说，不需要滚动数组，在转移过程中，使用一个 $g$ 函数即可。在最后输出的时候，只需要判断`g[m]`的情况输出 $i$  
 
 ```python
-def g_optimization(h, m):
+def gOptimization(h, m):
     if h < 1 and m < 1:
         return 0
 
