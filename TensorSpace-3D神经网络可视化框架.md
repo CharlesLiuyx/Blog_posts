@@ -1,5 +1,5 @@
 ---
-title: TensorSpace-3D神经网络可视化框架
+title: TensorSpace 一个3D神经网络可视化框架
 date: 2018-09-28 16:00:20
 tags:
 - Visualization
@@ -9,216 +9,150 @@ categories:
 ---
 
 【阅读时间】文档介绍类文章
-【阅读内容】TensorSpace - 是一款3D模型可视化框架，支持多种模型，帮助你可视化层间输出，更直观的展示模型的输入输出，帮助理解模型结构，输出方法
+【阅读内容】[TensorSpace](tensorspace.org) - 是一款3D模型可视化框架，支持多种模型，帮助你可视化层间输出，更直观的展示模型的输入输出，帮助理解模型结构，输出方法。[https://github.com/tensorspace-team/tensorspace)
 
 <!-- more -->
 
-# Conv2d ![#FFFF2E](https://placehold.it/15/FFFF2E/000000?text=+) 
+机器学习入门？先上手玩玩看！
 
-## 构造器
-```JavaScript
-TSP.layers.Conv2d( { fileter : Int } )  
-```
+# 是什么（What）
 
-### 参数列表
+`TensorSpace`是一款**3D模型可视化框架**，一动图胜千言。[官网链接](tensorspace.org)，[Github链接](https://github.com/tensorspace-team/tensorspace)
 
-#### ⭐️ 必要参数
+<div align="center"><img src="TensorSpace-3D神经网络可视化框架/TensorSpaceLeNet.gif" alt="" width="1000"></div>
 
-> 使用时必须提供，不能为空
-> 只要提供了这些参数，就能正常创建实例，控制参数使用`默认值`
+# 为什么（Why）
 
-[filters]() : `Int` 特征提取过滤器的数量
+本部分说明：**❓为什么要使用这个框架？❓这个框架主要解决了什么问题？❓我们的灵感来源于何处？**
 
-#### 🔧 推荐参数
+## 3D神经网络可视化一片空白
 
-> 使用时推荐给定，未给定可以运行，但在体验和易用性上有隐患
+在**机器学习可视化**上，每个**机器学习框架**都有自己的【御用工具】，[Tensorboard](https://github.com/tensorflow/tensorboard)之于`Tensorflow` ，[Visdom](https://github.com/facebookresearch/visdom)之于`Pytorch`，[MXboard](https://github.com/awslabs/mxboard)之于`MXnet`。这些工具的Slogan不一而同的选择了Visualization Learning(TensorBoard的Slogan)，也就是**面向专业机器学习开发者**，针对**训练过程，调参**等设计的可视化工具
 
-[name]() : `string` 层的命名，强烈建议添加
+但面向一般的**计算机工程师**和**非技术类人才（市场，营销，产品）**，一片空白，没有一个优秀的工具来帮助他们理解<span sytle="font-weight:bold; color: red">❓机器学习模型到底做了什么，能解决一个什么问题</span>
 
-[padding]() : `string` 是否使用padding
-- `valid`(default) 不使用padding，丢弃无法提取特征的部分，会改变输出的形状
-- `same` 使用padding，在不够的位置补零 ，输出的形状不变
+机器学习开发和工程使用并不是那么遥不可及，`TensorSpace`搭了个桥去链接**实际问题**和**机器学习模型**
 
-#### ⚙️可选参数
+## 3D可视化的信息密度更高更直观
 
-> 根据模型配置参数**选择性添加**
-> 这里的参数对于层的结构（3D可视化外观）没有影响
+市面上常见的机器学习可视化框架都是**基于图表**（2d），这是由它们的**应用领域**（训练调试）决定的。但3D可视化**不仅能同时表示层间信息，更能直观的展示模型结构**，这一点是2D可视化不具备的。例如在何凯明大神的Mask-RCNN中：
 
-[shape]() : `[Int]` 
-- 有此参数，会覆盖除了`filters`的其他参数的影响，Dataformat默认通道值在最后
-- 例如，令`shape = [ 28, 28, 6 ]`，则表示输出为6个特征图，每幅图大小`28*28` 
+<div align="center"><img src="TensorSpace-3D神经网络可视化框架/Show.png" alt="" width="800"></div>
 
-[kernelSize]() : `Int` 卷积核的尺寸，2d卷积核为正方形
+有这么一幅图来描述模型结构（当然很多模型类论文都会有这么一副图）而`TensoSpace`可以让用户使用浏览器方便的构建出一个可交互的神经网络3D结构。更进一步的，利用3D模型的表意能力特点，结合[Tensorflow.js](https://js.tensorflow.org/)，可在**浏览器中进行模型预测**（跑已经训练好的模型看输入输出分别是什么），帮助理解模型
 
-[strides]() : `Int` 卷积移动框的移动步长，在不同方向的步长相等
+## 【模型结构】黑盒子的真面目是什么？
 
-#### 🎨 外观参数
+模型就像是一个盛水的容器，而预训练模型就给这个容器装满了水，可以用来解决实际问题。**搞明白一个模型的输入是什么，输出是什么，如何转化成我们可理解的数据结构格式**（比如输出的是一个物体标识框的左上角左下角目标）就可以方便的理解某个模型具体做了什么
 
-> 可覆盖`TSP.model.Sequential`下的属性进行细调，[详情点击]()
+例如，[Yolo](http://tensorspace.org/html/playground/yolov2-tiny.html)到底是如何算出最后的物体识别框的？[LeNet](http://tensorspace.org/html/playground/lenet.html)是如何做手写识别的？[ACGAN](http://tensorspace.org/html/playground/acgan.html)是怎么一步一步生成一个0-9的图片的？这些都可以在提供的`Playground`中自行探索
 
-[color]() : `color format` 层的颜色，默认颜色是**亮黄色** #FFFF2E
+如下图所示，模型层间的链接信息可通过直接鼠标悬停具体查看
 
-`closeButton` : `Dict` 层关闭按钮外观控制列表
-- [display]() : `Bool` `true` 显示按钮 | `false` 隐藏按钮
-- [ratio]() : `Int` 为正常大小的几倍.例如，设为2为正常大小的2倍大
-```javascript
-closeButton {
-    display: false,
-    ratio: 2,
-}
-```
+<div align="center"><img src="TensorSpace-3D神经网络可视化框架/ShowStruc.png" alt="" width="1000"></div>
 
-#### 🎦 动画控制参数
+## 【层间数据】神经网络的每一层都做了什么？
 
-> 可覆盖`TSP.model.Sequential`下的属性进行细调，[详情点击]()
+3D模型不仅仅可以直观的展示出神经网络的结构特征（哪些层相连，每一层的数据和计算是从哪里来），结合[Tensorflow.js](https://js.tensorflow.org/)，可在**浏览器中进行模型预测**。由于我们已经有了模型结果，所有的层间数据直观可见，如下图所示
 
-[initStatus]() : `string` 初始化时，本层是否收缩
-- `close`(default) : 收缩
-- `open` : 展开
+<div align="center"><img src="TensorSpace-3D神经网络可视化框架/InData.png" alt="" width="1000"></div>
 
-[animationTimeRatio]() : `Int` 张开和伸缩的调整速度，呈倍速关系，例如2就是2倍，**数字越大速度越快**
+# 怎么建（How）
 
-### 参数列表
+首先你需要有一个使用常用框架训练好的的**预训练模型**，常见的模型都是只有**输入输出**两个暴露给用户的接口。如果你想全面的**展示层间数据**，必须将模型转换成**多输出的模型**，过程详见[此文档](https://tensorspace.org/html/docs/preIntro_zh.html)。具体流程如下图所示：
 
-|        参数名<br />标签         |      类型      |               简介               |                      具体用法细节和例子                      |
-| :-----------------------------: | :------------: | :------------------------------: | :----------------------------------------------------------: |
-|      [filters]() <br />⭐️📦       |     `Int`      |       特征提取过滤器的数量       |                        `filters: 16`                         |
-|        [name]() <br />🔧         |    `String`    |      层的命名，强烈建议添加      |                     `name: "layerName" `                     |
-|      [padding]() <br />🔧📦       |    `String`    |         是否使用padding          | `valid`[default] 不使用padding，丢弃无法提取特征的部分，会改变输出的形状<br />`same` 使用padding，在不够的位置补零 ，输出的形状不变 |
-|       [shape]() <br />⚙️📦        |    `[Int]`     |         当前层的输出形状         | 有此参数，会覆盖除了`filters`的其他参数的影响<br />Dataformat默认通道值在最后<br />例如，`shape = [ 28, 28, 6 ]`，则表示输出为6个特征图，每幅图大小`28*28` |
-|     [kernelSize]() <br />⚙️📦     |     `Int`      |           卷积核的尺寸           |               2d卷积核为正方形 `kernelSize: 3`               |
-|      [strides]() <br />⚙️📦       |    `[Int]`     |       卷积移动框的移动步长       |  在不同方向的步长相等，默认情况自动推断 `strides = [1, 1]`   |
-|       [color]() <br />⚙️🎨        | `color format` |             层的颜色             | `Conv2d`默认颜色是**亮黄色** #FFFF2E![#FFFF2E](https://placehold.it/15/FFFF2E/000000?text=+) |
-|     `closeButton`* <br />⚙️🎨      |     `Dict`     |    层关闭按钮外观控制**列表**    | [display]() : `Bool`  `true` [default] 显示按钮 `false` 隐藏按钮<br />[ratio]() : `Int` 为正常大小的几倍，默认为1倍<br />例如，设为2为正常大小的2倍大 |
-|     [initStatus]() <br />⚙️🎦     |    `String`    |      初始化时，本层是否收缩      |           `close`[default] : 收缩 | `open` : 展开            |
-| [animationTimeRatio]() <br />⚙️🎦 |     `Int`      | 张开和伸缩的调整速度，呈倍速关系 |              例如2就是2倍，**数字越大速度越快**              |
+<div align="center"><img src="TensorSpace-3D神经网络可视化框架/Flow.png" alt="" width="900"></div>
 
-*`closeButton` 例子
-```javascript
-closeButton {
-    display: false,
-    ratio: 2,
-}
-```
-### 标签详情
-
-| 符号 | 参数性质 |                             说明                             |
-| :--: | :------: | :----------------------------------------------------------: |
-|  ⭐️   |   必要   | 使用时必须提供，不能为空<br/>只要提供了这些参数，就能正常创建实例，控制参数使用`默认值` |
-|  🔧   |   推荐   |  使用时推荐给定，未给定也可以运行，但在体验和易用性上有隐患  |
-|  ⚙️   |   可选   | 根据模型配置参数**选择性添加**<br/>这里的参数对于层的结构（3D可视化外观）没有影响 |
-|  📦   |   模型   |        配置卷积层的相关属性，并对输出特征图形状有影响        |
-|  🎨   |   外观   |  可覆盖`TSP.model.Sequential`下的属性进行细调，[详情点击]()  |
-|  🎦   | 动画控制 |  可覆盖`TSP.model.Sequential`下的属性进行细调，[详情点击]()  |
-
-### 调用结果
-
-- 创建一个新的对象，往3D场景中添加一个新的**3D可视化卷积层**
-- 默认颜色: #FFFF2E  ![#FFFF2E](https://placehold.it/15/FFFF2E/000000?text=+) 
-
-<div align="left"><img src="https://github.com/zchholmes/tsp_image/blob/master/Document/Conv2D.png" alt="" width="700"></div>
-
-
-## 属性
-
-### [.inputShape]() : [Int]
-
-> 在 `model.init()` 后才可拿到数据，否则为`undefined`
-
-本层**输入Tensor**的形状，Dataformat默认通道值在最后，例如`inputShape = [ 28, 28, 2 ]` 表示输入为`3`个特征图，每个图大小为`28*28`
-
-### [.outputShape]() : [Int]
-
-> 在 `model.init()` 后才可拿到数据，否则为`undefined`
-
-本层**输出Tensor**的形状，Dataformat默认通道值在最后，例如`outputShape = [ 32, 32, 4 ]`  表示经过此层处理后，有`4`个特征图，每个图大小为`32*32`
-
-### [.neuralValue]() : [float32]
-
-> 载入模型，在 `model.predict()` 后才可以拿到数据，否则为`undefined`
-
-本层的**层间输出**值数组
-
-### [.name]() : string
-
-> 创建后即可取到
-
-本层的自定义名称
-
-### [.layerType]() : string
-
-> 创建后即可取到
-
-本层的类型，返回一个定值，字符串`Conv2d`
-
-## 方法
-
-### [.openLayer()]() : void
-
-（1）通过直接和3d场景中物体交互`直接点击层`打开
-
-<div align="left"><img src="https://github.com/zchholmes/tsp_image/blob/master/Document/Conv2d-open.gif" alt="" width="400"></div>
-
-（2）代码中通过调用方法打开
+用`TensorSpace`构建对应模型这一步，下面一段构建`LetNet`的代码可能更加直观，html文件，缺少头，需要再http server上跑
 
 ```javascript
-model.init();
-TSP.layers.Conv2d.openLayer()
+<body>
+        <div id="container"></div>
+        <script src="../lib/jquery.min.js"></script>
+        <script src="../lib/three.min.js"></script>
+        <script src="../lib/stats.min.js"></script>
+        <script src="../lib/tween.min.js"></script>
+        <script src="../lib/TrackballControls.js"></script>
+        <script src="../lib/tf.min.js"></script>
+        <script src="../lib/signature_pad.min.js"></script>
+        <script src="../../build/tensorspace.js"></script>
+		<script>
+            let modelContainer = document.getElementById( "container" );
+            let model = new TSP.models.Sequential( modelContainer, {
+				animationTimeRatio: 0.1, stats: true
+            } );
+            model.add( new TSP.layers.GreyscaleInput( {
+				shape: [ 28, 28, 1 ], color: 0xFFFFFF, name: "initInput" } ) );
+            model.add( new TSP.layers.Padding2d( { padding: [ 2, 2 ], name: "padding" } ) );
+            model.add( new TSP.layers.Conv2d( {
+				kernelSize: 5, filters: 6, strides: 1, name: "conv2d1" } ) );
+            model.add( new TSP.layers.Pooling2d( {
+				poolSize: [ 2, 2 ], strides: [ 2, 2 ], name: "maxPool2d1" } ) );
+            model.add( new TSP.layers.Conv2d( {
+				kernelSize: 5, filters: 16, strides: 1, name: "conv2d2" } ) );
+            model.add( new TSP.layers.Pooling2d( {
+				poolSize: [ 2, 2 ], strides: [ 2, 2 ], name: "maxPool2d2" } ) );
+            model.add( new TSP.layers.Dense( { units: 120, name: "dense1" } ) );
+            model.add( new TSP.layers.Dense( { units: 84, name: "dense2", } ) );
+            model.add( new TSP.layers.Output1d( {
+				units: 10, outputs: [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ],
+                name: "output" } ) );
+            model.load( { type: "tfjs", url: './lenetModel/mnist.json' } );
+            model.init();
+        </script>
+    </body>
 ```
 
-### [.closeLayer()]() : void
+你最需要的是**模型结构的相关信息**，`Tensorflow`，`Keras`都有对应的API打印模型结构信息，比如`Keras`的`model.summary()`。还有类似生成结构图的方式，生成如下图的模型结构2D示意图
 
-（1）通过直接和3d场景中物体交互`点击按钮`关闭
+<div align="center"><img src="TensorSpace-3D神经网络可视化框架/LeNet-Model.png" alt="" width="300"></div>
 
-<div align="left"><img src="https://github.com/zchholmes/tsp_image/blob/master/Document/Conv2d-close.gif" alt="" width="400"></div>
+是的，**你需要对模型结构非常了解**才可能构建出对应的`TensoSpace`模型，未来版本已计划推出自动脚本，通过导入对应的模型预训练文件，**一键生成多输出模型**。但是`TensoSpace`的Playground会未来子项目会力所能及的收集更多的模型，在模型应用落地和直观展示这个领域努力做出自己的贡献
 
-（2）代码中通过调用方法打开
+# 谁可能用（Who）
 
-```javascript
-model.init();
-// if this layer already opened
-TSP.layers.Conv2d.closeLayer()
-```
+做这样一款开源框架，除了填补3D可视化的一般解决方案的框架空白外，还思索了几个可能可行的**应用场景**
 
-## 使用样例
+## 前端开发者过度机器学习
 
-### 添加层
+> 前端（全栈）开发者，产品经理等
 
-（1）声明一个`Conv2D`的实例，方便复用
+未来，前端的一些重复性工作可能会慢慢减少，最近有一个[原型图 ➜ HTML代码的项目](https://zhuanlan.zhihu.com/p/48580981)，另一个2017年的[开源项目](https://github.com/tonybeltramelli/pix2code)。机器学习一定不会取代前端工程师，但掌握机器学习工具的工程师会有优势（这种工具会不会整合进Sketch等工具不好说），既然入了工程师行，终身学习势在必行！
 
-```javascript
-let convLayer = new TSP.layers.Conv2d({
-    kernelSize: 5,
-    filters: 6,
-    strides: 1,
-    animationTimeRatio: 2,
-    name: "conv2d1",
-    initStatus: "open",
-});
-model.add(convLayer);
-```
+`TensorSpace`虽然不是能帮忙训练和设计模型，但擅长帮助工程师**理解已有的模型**，找到可应用的领域。并且在接驳光法开发者到机器学习的大道上做了一点微小的工作
 
-（2）直接添加`Conv2D`
+## 机器学习教育
 
-```javascript
-model.add(new TSP.layers.Conv2d({
-    kernelSize: 5,
-    filters: 16,
-    strides: 1,
-    name: "conv2d2"
-}));
-```
+> 机器学习开发者
 
-### 什么时候用
+使用`Tensorspace`直观的在浏览器上显示模型细节和数据流动方向，讲解一下常见模型的实现原理，比如ResNet，Yolo等，可以让学生更直观的了解一个模型的前世今生，输入什么，输出什么，怎么处理的等等
 
-如果你是`Keras` | `TensorFlow` | `tfjs` 框架的使用者，构建模型时使用了**卷积层**`Conv2D`（下表列出了可能的使用情景）。一一对应的，在`TensorSpace`中，你应该使用此API
+我们只是提供了一个框架，每一个模型如果需要直观的展示对数据的处理过程，都**值得3D化**
 
-| 框架名称 | 文档格式 | 样例代码段 |
-| :---: | :---: | :---: |
-| [Keras](https://keras.io/layers/convolutional/) | keras.layers.Conv2D([filters](), [kernel_size](), [strides]()=(1, 1)) | model.add(Conv2D(32, (3, 3))) |
-| [TensorFlow](https://www.tensorflow.org/api_docs/python/tf/nn/conv2d) | tf.nn.conv2d(input, [filter](), [strides](), [padding]()) | x = tf.nn.conv2d(x, W, strides=[1, strides, strides, 1], padding='SAME') |
-| [TensorFlow.js](https://js.tensorflow.org/api/0.13.0/#layers.conv2d) | tf.layers.conv2d ([filters](), [kernelSize]()) | model.add(tf.layers.conv2d({kernelSize: 3, filters: 32, activation: 'relu'})); |
+## 模型演示和传播
 
-### 源码
+> 机器学习开发者
 
-[tensorspace/src/layer/intemediate/Conv2d.js](https://github.com/syt123450/tensorspace/blob/master/src/layer/intemediate/Conv2d.js)
+`JavaScript`最大的优势就是可以**在浏览器中运行**，没有烦人的依赖，不需要踩过各种坑。有一个版本不那么落后的浏览器和一台性能还成的电脑就可以访问整个框架的有关内容
+
+如果您的项目对展示**自己的模型可以做什么**，**是怎么做**的有需求，那私以为，`TensorSpace`你不应错过
+
+用`TensorSpace`来教学模型原理效果非常好，至少提供了一个接口去写代码，搞清楚每一个输出代表了什么，是如何转化成最后结果（的确，从输出到最后结果的转换还是需要写`JavaScript`代码的）比如，现在还没有完成的`Yolov2-tiny`就是因为`JavaScript`的轮子太少，都需要自己搭导致的。时间的力量是强大的，我们搭建一个地基，万丈高楼平地起！共勉！
+
+# 致谢
+
+## 机器学习部分
+
+我们最初的灵感来源于一个真正教会我深度卷积网是如何工作的网站：[http://scs.ryerson.ca/~aharley/vis/conv/](http://scs.ryerson.ca/~aharley/vis/conv/)（源码只能下载，我Host了一份在[Github](https://github.com/CharlesLiuyx/3DVis_ConvNN)上）
+
+这个网站的效果，**也是团队未来努力的方向**（大网络上，因为实体过多，可能性能无法支持，选择不是一个Pixel一个Pixel的渲染，而是一个特征图一个特征图的处理）
+
+## 前端部分
+
+我们使用了[Tensorflow.js](https://js.tensorflow.org/) [Three.js](https://threejs.org/) [Tween.js](https://github.com/tweenjs/tween.js/) 等框架完成这个项目，感谢前人给的宽阔肩膀让我们有机会去探索更广阔的世界
+
+## 开发团队们
+
+感谢每一个为这个项目付出的伙伴，没有你们每个人，就没有这个开源项目破土而出！团队中负责开发文档的[syt123450](https://github.com/syt123450)（主力）和[Chenhua Zhu](https://github.com/zchholmes)，设计师[Qi(Nora)](https://github.com/lq3297401)，感谢他们！还有负责机器学习模型部分和文档的[我](https://github.com/CharlesLiuyx)
+
+也欢迎你有什么想法给我留言，或直接在Github上提出Pull Request
