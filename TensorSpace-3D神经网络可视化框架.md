@@ -9,17 +9,19 @@ categories:
 ---
 
 【阅读时间】文档介绍类文章
-【阅读内容】[TensorSpace](tensorspace.org) - 是一款3D模型可视化框架，支持多种模型，帮助你可视化层间输出，更直观的展示模型的输入输出，帮助理解模型结构，输出方法。[https://github.com/tensorspace-team/tensorspace)
+【阅读内容】[TensorSpace](https://tensorspace.org) - 是一款3D模型可视化框架，支持多种模型，帮助你可视化层间输出，更直观的展示模型的输入输出，帮助理解模型结构，输出方法。[Github](https://github.com/tensorspace-team/tensorspace)
 
 <!-- more -->
 
-机器学习入门？先上手玩玩看！
+>  机器学习入门？先上手玩玩看！
 
 # 是什么（What）
 
 `TensorSpace`是一款**3D模型可视化框架**，一动图胜千言。[官网链接](tensorspace.org)，[Github链接](https://github.com/tensorspace-team/tensorspace)
 
 <div align="center"><img src="TensorSpace-3D神经网络可视化框架/TensorSpaceLeNet.gif" alt="" width="1000"></div>
+
+<br>
 
 # 为什么（Why）
 
@@ -37,7 +39,7 @@ categories:
 
 市面上常见的机器学习可视化框架都是**基于图表**（2d），这是由它们的**应用领域**（训练调试）决定的。但3D可视化**不仅能同时表示层间信息，更能直观的展示模型结构**，这一点是2D可视化不具备的。例如在何凯明大神的Mask-RCNN中：
 
-<div align="center"><img src="TensorSpace-3D神经网络可视化框架/Show.png" alt="" width="800"></div>
+<div align="center"><img src="TensorSpace-3D神经网络可视化框架/Show.png" alt="" width="600"></div>
 
 有这么一幅图来描述模型结构（当然很多模型类论文都会有这么一副图）而`TensoSpace`可以让用户使用浏览器方便的构建出一个可交互的神经网络3D结构。更进一步的，利用3D模型的表意能力特点，结合[Tensorflow.js](https://js.tensorflow.org/)，可在**浏览器中进行模型预测**（跑已经训练好的模型看输入输出分别是什么），帮助理解模型
 
@@ -51,11 +53,15 @@ categories:
 
 <div align="center"><img src="TensorSpace-3D神经网络可视化框架/ShowStruc.png" alt="" width="1000"></div>
 
+<br>
+
 ## 【层间数据】神经网络的每一层都做了什么？
 
 3D模型不仅仅可以直观的展示出神经网络的结构特征（哪些层相连，每一层的数据和计算是从哪里来），结合[Tensorflow.js](https://js.tensorflow.org/)，可在**浏览器中进行模型预测**。由于我们已经有了模型结果，所有的层间数据直观可见，如下图所示
 
 <div align="center"><img src="TensorSpace-3D神经网络可视化框架/InData.png" alt="" width="1000"></div>
+
+<br>
 
 # 怎么建（How）
 
