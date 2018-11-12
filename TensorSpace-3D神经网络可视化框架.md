@@ -21,7 +21,7 @@ categories:
 
 <div align="center"><img src="TensorSpace-3D神经网络可视化框架/TensorSpaceLeNet.gif" alt="" width="1000"></div>
 
-`TensorSpace`擅长直观展示**模型结构**和**层间数据**，生成的模型**可交互**。官方支持[手写字符识别](https://tensorspace.org/html/playground/lenet.html)，[物体识别](https://tensorspace.org/html/playground/mobilenetv1.html)，[`0-9`字符对抗生成网络案例](https://tensorspace.org/html/playground/acgan.html)等
+⭐️`TensorSpace`擅长直观展示**模型结构**和**层间数据**，生成的模型**可交互**。官方支持[手写字符识别](https://tensorspace.org/html/playground/lenet.html)，[物体识别](https://tensorspace.org/html/playground/mobilenetv1.html)，[`0-9`字符对抗生成网络案例](https://tensorspace.org/html/playground/acgan.html)等
 
 # 为什么（Why）
 
