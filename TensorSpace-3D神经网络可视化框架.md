@@ -41,9 +41,9 @@ categories:
 
 <div align="center"><img src="TensorSpace-3D神经网络可视化框架/Show.png" alt="" width="600"></div>
 
-有这么一幅图来**描述模型结构**（很多模型设计类和应用落地类的论文都会有这么一副图）而`TensoSpace`可以让用户使用浏览器方便的构建出一个**可交互的神经网络3D结构**
+有这么一幅图来**描述模型结构**（很多模型设计类和应用落地类的论文都会有这么一副图）而`TensorSpace`可以让用户使用浏览器方便的构建出一个**可交互的神经网络3D结构**
 
-更进一步的，利用3D模型的表意能力特点，结合[Tensorflow.js](https://js.tensorflow.org/)，可在**浏览器中进行模型预测**（跑已经训练好的模型看输入输出分别是什么❗️），帮助理解模型
+更进一步的，利用3D模型的表意能力特点，结合[TensorFlow.js](https://js.tensorflow.org/)，可在**浏览器中进行模型预测**（跑已经训练好的模型看输入输出分别是什么❗️），帮助理解模型
 
 ## 【模型结构】黑盒子的真面目是什么？
 
@@ -59,11 +59,11 @@ categories:
 
 ## 【层间数据】神经网络的每一层都做了什么？
 
-3D模型不仅仅可以直观的展示出神经网络的结构特征（哪些层相连，每一层的数据和计算是从哪里来），结合[Tensorflow.js](https://js.tensorflow.org/)，可在**浏览器中进行模型预测**。由于我们已经有了模型结果，所有的层间数据直观可见，如下图所示
+3D模型不仅仅可以直观的展示出神经网络的结构特征（哪些层相连，每一层的数据和计算是从哪里来），结合[Tensorflow.js](https://js.tensorflow.org/)，可在**浏览器中进行模型预测**。由于我们已经有了模型结果，所有的层间数据直观可见，如下图所示：
 
 <div align="center"><img src="TensorSpace-3D神经网络可视化框架/InData.png" alt="" width="1000"></div>
 
-在`TensoSpace`内部，调用`Callback Function`可以方便的拿到每一层的输出数据（未经处理），工程和应用上，了解一个模型的原始输出数据方便工程落地
+可以通过 `TensorSpace` Layer的**对象属性**方便的拿到每一层的输出数据（未经处理），工程和应用上，了解一个模型的原始输出数据方便工程落地
 
 # 怎么建（How）
 
@@ -71,7 +71,7 @@ categories:
 
 <div align="center"><img src="TensorSpace-3D神经网络可视化框架/Flow.png" alt="" width="900"></div>
 
-用`TensorSpace`构建对应模型这一步，下面一段构建`LetNet`的代码可能更加直观，如果要在本地运行，需要Host本地Http Server
+用`TensorSpace`构建对应模型这一步，下面一段构建`LeNet`的代码可能更加直观，如果要在本地运行，需要Host本地Http Server
 
 <iframe height='400' scrolling='no' title='TensorSpace LetNet' src='//codepen.io/syt123450/embed/667a7943b0f23727790ca38c93389689/?height=300&theme-id=33158&default-tab=js,resultundefined&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen TensorSpace Hello World by syt123450 (@syt123450) on CodePen. </iframe>
 
